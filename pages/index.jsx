@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { IoMdArrowDropdown,IoMdArrowDropup } from 'react-icons/io';
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import Cookies from 'cookies'
 import { useCookies } from "react-cookie"
 import { toast, ToastContainer } from 'react-toastify';
@@ -12,8 +12,10 @@ export default function Home({ NotesData }) {
 
     let router = useRouter()
     const [modal, setModal] = useState(true)
-    const [tenantDetail, setTenantDetail] = useState({ name: "", address: "",pgLoc:"", contact: "", age: "", adhaar: "", city: "",zipcode: ""
-, roomsPerfloor: 0, totalRoom: "", floor: 0 })
+    const [tenantDetail, setTenantDetail] = useState({
+        name: "", address: "", pgLoc: "", contact: "", adhaar: "", city: "", zipcode: ""
+        , roomsPerfloor: 0, totalRoom: "", floor: 0
+    })
     const [cookie, setCookie] = useCookies(['usertkn'])
 
     const handleClose = () => {
@@ -38,7 +40,7 @@ export default function Home({ NotesData }) {
 
     return (
         <>
-            <Head><title>Welcome to Flash Notes || Easy to use</title></Head>
+            <Head><title>Welcome to Tenant Bill Generator || Easy to use</title></Head>
             <div className='mx-auto'>
                 <ToastContainer
                     position="top-right"
@@ -83,7 +85,7 @@ export default function Home({ NotesData }) {
 
                                                     <div className="md:col-span-3">
                                                         <label for="address">PG Location</label>
-                                                        <input onChange={handleChange} type="text" name="pg" id="pg" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={tenantDetail.pgLoc} placeholder="" />
+                                                        <input onChange={handleChange} type="text" name="pgLoc" id="pgLoc" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={tenantDetail.pgLoc} placeholder="" />
                                                     </div>
 
                                                     <div className="md:col-span-2">
@@ -92,7 +94,7 @@ export default function Home({ NotesData }) {
                                                     </div>
                                                     <div className="md:col-span-3">
                                                         <label for="address">Adhaar No.</label>
-                                                        <input onChange={handleChange} type="text" name="adhaar" id="adhaar" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                        <input onChange={handleChange} type="text" name="adhaar" id="adhaar" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={tenantDetail.adhaar} placeholder="" />
                                                     </div>
 
                                                     <div className="md:col-span-2">
@@ -103,17 +105,17 @@ export default function Home({ NotesData }) {
                                                     <div className="md:col-span-2">
                                                         <label for="soda">No. of floors?</label>
                                                         <div className="h-10  bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                                                        <IoMdArrowDropup className="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600"/>
-                                                            <input onChange={handleChange} name="floors" id="floors" placeholder="0" className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value={tenantDetail.floor} />
-                                                            <IoMdArrowDropdown className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600"/>
+                                                            <IoMdArrowDropup className="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600" />
+                                                            <input onChange={handleChange} name="floor" id="floor" placeholder="0" className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value={tenantDetail.floor} />
+                                                            <IoMdArrowDropdown className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600" />
                                                         </div>
                                                     </div>
                                                     <div className="md:col-span-2">
                                                         <label for="room">No. of Rooms/floor</label>
                                                         <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                                                           <IoMdArrowDropup className="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600"/>
-                                                            <input onChange={handleChange}  name="roomsPerfloor" id="roomsPerfloor" type='number' placeholder="0" className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value={tenantDetail.roomsPerfloor} />
-                                                           <IoMdArrowDropdown className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600"/>
+                                                            <IoMdArrowDropup className="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600" />
+                                                            <input onChange={handleChange} name="roomsPerfloor" id="roomsPerfloor" type='number' placeholder="0" className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value={tenantDetail.roomsPerfloor} />
+                                                            <IoMdArrowDropdown className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600" />
                                                         </div>
                                                     </div>
                                                     <div className="md:col-span-1 items-center">
